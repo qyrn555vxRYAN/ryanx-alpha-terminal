@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RyanX | Operator Arsenal</title>
+    <title>RyanX | Alpha Scanner</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
     <style>
@@ -19,7 +19,6 @@
         }
         @keyframes moveScanline { 0% { top: 0; } 100% { top: 100vh; } }
         .nav-item.active { background-color: rgba(56, 189, 248, 0.1); border-right: 2px solid #38bdf8; color: #38bdf8; }
-        /* Scrollbar styling */
         ::-webkit-scrollbar { width: 6px; height: 6px; }
         ::-webkit-scrollbar-track { background: #020617; }
         ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
@@ -31,23 +30,12 @@
     
     <div id="app" class="w-full max-w-6xl neon-border rounded-xl bg-slate-900/80 backdrop-blur-md overflow-hidden flex flex-col md:flex-row h-[90vh] md:h-[85vh] terminal-glow border-blue-500/30">
         
-        <!-- Sidebar / Mobile Header -->
+        <!-- Sidebar -->
         <div class="w-full md:w-64 bg-slate-950 border-b md:border-b-0 md:border-r border-blue-500/20 flex flex-col shrink-0">
             <div class="p-4 md:p-6 border-b border-slate-800 flex justify-between md:block items-center">
                 <div>
-                    <div class="hidden md:flex items-center space-x-2 mb-2">
-                        <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
-                        <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
-                        <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
-                    </div>
-                    <h1 class="text-lg md:text-xl font-bold neon-text text-white">RyanX_OS</h1>
-                    <p class="text-[9px] md:text-[10px] text-slate-500 tracking-widest mt-1">OPERATOR ARSENAL</p>
-                </div>
-                <!-- Mobile Menu Button (visual only for now) -->
-                <div class="md:hidden flex space-x-1">
-                    <div class="w-2 h-2 rounded-full bg-blue-500"></div>
-                    <div class="w-2 h-2 rounded-full bg-blue-500"></div>
-                    <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+                    <h1 class="text-lg md:text-xl font-bold neon-text text-white text-center">RyanX_OS</h1>
+                    <p class="text-[9px] md:text-[10px] text-slate-500 tracking-widest mt-1 text-center">OPERATOR ARSENAL</p>
                 </div>
             </div>
             
@@ -55,107 +43,45 @@
                 <a href="#" class="nav-item active px-4 py-2 md:px-6 md:py-3 text-xs md:text-sm transition-colors hover:bg-slate-800 border-b-2 md:border-b-0 md:border-r-2 border-blue-500">
                     📈 Alpha Scanner
                 </a>
-                <a href="#" class="px-4 py-2 md:px-6 md:py-3 text-xs md:text-sm text-slate-600 cursor-not-allowed hidden md:block">
-                    🛡️ Wallet Analyzer <span class="text-[9px] bg-slate-800 px-1 ml-1 md:ml-2 rounded">SOON</span>
+                <a href="https://qyrn555vxryan.github.io/ryanx-whale-terminal/" class="px-4 py-2 md:px-6 md:py-3 text-xs md:text-sm text-zinc-500 hover:text-blue-400 transition-colors">
+                    🐋 Whale Terminal
                 </a>
-                <a href="#" class="px-4 py-2 md:px-6 md:py-3 text-xs md:text-sm text-slate-600 cursor-not-allowed hidden md:block">
-                    📄 PDF Extractor <span class="text-[9px] bg-slate-800 px-1 ml-1 md:ml-2 rounded">SOON</span>
+                <a href="https://qyrn555vxryan.github.io/ryanx-rug-shield/" class="px-4 py-2 md:px-6 md:py-3 text-xs md:text-sm text-zinc-500 hover:text-blue-400 transition-colors">
+                    🛡️ Rug-Shield
                 </a>
             </nav>
-            
-            <div class="hidden md:block p-4 border-t border-slate-800 text-[10px] text-center text-slate-600">
-                SYSTEM: ONLINE<br>V1.1.1
-            </div>
         </div>
 
         <!-- Main Content -->
         <div class="flex-grow flex flex-col overflow-hidden">
-            <!-- Header -->
-            <div class="bg-slate-900 p-3 md:p-4 border-b border-blue-500/10 flex flex-wrap gap-2 justify-between items-center">
-                <span class="text-xs md:text-sm font-bold tracking-widest text-blue-400">MOD: SOL_SCANNER</span>
-                <div id="connection-status" class="text-[9px] md:text-[10px] text-green-500 bg-green-500/10 px-2 py-1 rounded">PYTH_SYNCED</div>
+            <div class="bg-slate-900 p-3 md:p-4 border-b border-blue-500/10 flex justify-between items-center">
+                <span class="text-xs md:text-sm font-bold tracking-widest text-blue-400 uppercase">Module: Alpha_Scanner</span>
+                <div class="text-[9px] md:text-[10px] text-green-500 bg-green-500/10 px-2 py-1 rounded">PYTH_SYNCED</div>
             </div>
 
-            <!-- Terminal Output -->
-            <div id="terminal" class="flex-grow p-4 md:p-8 overflow-y-auto space-y-4">
-                
-                <!-- Locked State -->
-                <div id="content-locked" class="space-y-4 md:space-y-6 w-full max-w-2xl mx-auto mt-4 md:mt-10 px-2">
-                    <div class="text-center">
-                        <h2 class="text-2xl md:text-3xl font-bold text-white mb-3 md:mb-4 neon-text tracking-tighter">DATA ENCRYPTED</h2>
-                        <p class="text-xs md:text-sm text-slate-400 mb-6 md:mb-8 leading-relaxed px-4">Institutional oracle signals for Moltbook ecosystem. Spreads & liquidity alerts.</p>
-                        
-                        <div class="bg-black/50 p-4 md:p-6 rounded-lg border border-yellow-500/20 inline-block text-left w-full sm:w-auto mb-6 md:mb-8 shadow-lg">
-                            <div class="flex items-center justify-between mb-3">
-                                <div class="text-[10px] md:text-xs text-yellow-500 font-bold uppercase tracking-wider">Access Protocol</div>
-                                <div class="text-[10px] md:text-xs bg-slate-800 px-2 py-1 rounded text-slate-300">7 Days</div>
-                            </div>
-                            <div class="text-xl md:text-2xl text-white font-bold mb-3">0.1 SOL</div>
-                            <div class="text-[9px] md:text-[10px] text-slate-500 mb-1">TRANSFER TO:</div>
-                            <div class="bg-slate-950 p-2 md:p-3 rounded font-mono text-[10px] md:text-sm break-all text-blue-300 border border-blue-500/20 select-all overflow-x-auto">
-                                AqE264DnKyJci9kV4t3eYhDtFB3H88HQusWtH5odSqHM
-                            </div>
-                        </div>
-
-                        <div class="space-y-3 w-full max-w-sm mx-auto">
-                            <input id="user-wallet" type="text" placeholder="YOUR WALLET ADDRESS" class="w-full bg-slate-950 border border-slate-700 p-3 md:p-4 rounded text-xs md:text-sm text-center focus:outline-none focus:border-blue-500 transition-colors uppercase tracking-widest text-white">
-                            <button onclick="verifyPayment()" id="verify-btn" class="w-full bg-blue-600 hover:bg-blue-500 text-white py-3 md:py-4 rounded font-bold text-xs md:text-sm tracking-[0.2em] transition-all shadow-lg shadow-blue-500/20">
-                                DECRYPT_FEED
-                            </button>
-                            <div id="verification-log" class="text-[10px] md:text-xs text-slate-500 animate-pulse h-4"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Unlocked State -->
-                <div id="content-unlocked" class="hidden space-y-6">
-                    <div class="flex flex-wrap justify-between items-end border-b border-slate-800 pb-3 gap-2">
-                        <div>
-                            <h2 class="text-lg md:text-xl text-green-400 font-bold tracking-widest mb-1">LIVE FEED</h2>
-                            <p class="text-[10px] md:text-xs text-slate-500">Pyth Oracles vs Raydium AMMs</p>
-                        </div>
-                        <div class="text-[10px] bg-green-500/20 text-green-500 px-2 py-1 rounded border border-green-500/30 animate-pulse">STREAMING</div>
-                    </div>
+            <div id="terminal" class="flex-grow p-4 md:p-8 overflow-y-auto">
+                <div id="content-locked" class="space-y-6 max-w-xl mx-auto mt-4 md:mt-10 px-2 text-center">
+                    <h2 class=\"text-2xl md:text-3xl font-bold text-white mb-3 neon-text tracking-tighter\">DATA ENCRYPTED</h2>
+                    <p class=\"text-xs md:text-sm text-slate-400 mb-6 leading-relaxed\">Institutional oracle signals for Moltbook ecosystem tokens. Arbitrage & liquidity monitoring.</p>
                     
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-black/60 p-4 md:p-6 rounded-xl border border-blue-500/20 relative overflow-hidden group">
-                            <div class="absolute top-0 right-0 w-12 h-12 bg-blue-500/10 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500"></div>
-                            <div class="flex justify-between items-start mb-3">
-                                <div class="text-xs md:text-sm font-bold text-slate-300">$SHELLRAISER</div>
-                                <div class="text-[9px] bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded">VOLATILE</div>
-                            </div>
-                            <div id="price-shell" class="text-xl md:text-3xl font-bold text-white mb-2">FETCHING...</div>
-                            <div class="flex justify-between items-center text-[10px] md:text-xs">
-                                <span class="text-slate-500">Raydium</span>
-                                <span class="text-green-400">+0.24% Spread</span>
-                            </div>
+                    <div class=\"bg-black/50 p-4 md:p-6 rounded-lg border border-yellow-500/20 inline-block text-left w-full sm:w-auto mb-6 shadow-lg\">
+                        <div class=\"flex justify-between items-center mb-4\">
+                            <div class=\"text-[10px] text-yellow-500 font-bold uppercase tracking-wider\">Subscription</div>
+                            <div class=\"text-[10px] bg-slate-800 px-2 py-1 rounded text-slate-300\">7 Days</div>
                         </div>
-
-                        <div class="bg-black/60 p-4 md:p-6 rounded-xl border border-blue-500/20 relative overflow-hidden group">
-                            <div class="absolute top-0 right-0 w-12 h-12 bg-yellow-500/10 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500"></div>
-                            <div class="flex justify-between items-start mb-3">
-                                <div class="text-xs md:text-sm font-bold text-slate-300">$SHIPYARD</div>
-                                <div class="text-[9px] bg-yellow-500/20 text-yellow-500 px-2 py-0.5 rounded">ACCUM</div>
-                            </div>
-                            <div id="price-ship" class="text-xl md:text-3xl font-bold text-white mb-2">FETCHING...</div>
-                            <div class="flex justify-between items-center text-[10px] md:text-xs">
-                                <span class="text-slate-500">Pyth Oracle</span>
-                                <span class="text-yellow-400">High Confidence</span>
-                            </div>
-                        </div>
+                        <div class=\"text-2xl text-white font-bold mb-3\">0.1 SOL</div>
+                        <div class=\"text-[9px] text-zinc-500 mb-1\">TRANSFER TO:</div>
+                        <div class=\"bg-slate-950 p-2 md:p-3 rounded font-mono text-[9px] md:text-sm break-all text-blue-300 border border-blue-500/20 select-all\">\n                            AqE264DnKyJci9kV4t3eYhDtFB3H88HQusWtH5odSqHM\n                        </div>
                     </div>
 
-                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs md:text-sm h-48 flex flex-col relative overflow-hidden">
-                        <div class="text-blue-500 mb-2 font-bold border-b border-slate-800 pb-2">[LOGS]</div>
-                        <div id="live-logs" class="space-y-1 md:space-y-2 overflow-y-auto flex-grow pb-4">
-                            <div class="text-slate-500">System initialized. Awaiting market signals...</div>
-                        </div>
-                    </div>
+                    <div class=\"space-y-3 w-full max-w-sm mx-auto\">\n                        <input id=\"user-wallet\" type=\"text\" placeholder=\"YOUR WALLET ADDRESS\" class=\"w-full bg-slate-950 border border-slate-700 p-3 md:p-4 rounded text-xs text-center focus:outline-none focus:border-blue-500 transition-colors text-white\">\n                        <button onclick=\"verifyPayment()\" id=\"verify-btn\" class=\"w-full bg-blue-600 hover:bg-blue-500 text-white py-3 md:py-4 rounded font-bold text-xs tracking-widest transition-all\">\n                            DECRYPT_FEED\n                        </button>\n                        <div id=\"verification-log\" class=\"text-[10px] text-slate-500 animate-pulse h-4\"></div>\n                    </div>
                 </div>
+
+                <div id="content-unlocked" class="hidden space-y-6">
+                    <div class=\"flex flex-wrap justify-between items-end border-b border-slate-800 pb-3 gap-2\">\n                        <div>\n                            <h2 class=\"text-lg md:text-xl text-green-400 font-bold tracking-widest mb-1\">LIVE ALPHA FEED</h2>\n                            <p class=\"text-[10px] md:text-xs text-slate-500\">Oracle Cross-Reference</p>\n                        </div>\n                        <div class=\"text-[10px] bg-green-500/20 text-green-500 px-3 py-1 rounded animate-pulse\">STREAMING</div>\n                    </div>\n                    <div class=\"grid grid-cols-1 sm:grid-cols-2 gap-4\">\n                        <div class=\"bg-black/60 p-4 rounded-xl border border-blue-500/20\">\n                            <div class=\"text-xs text-zinc-500 mb-2\">$SHELLRAISER</div>\n                            <div id=\"price-shell\" class=\"text-xl md:text-2xl font-bold text-white\">FETCHING...</div>\n                        </div>\n                        <div class=\"bg-black/60 p-4 rounded-xl border border-blue-500/20\">\n                            <div class=\"text-xs text-zinc-500 mb-2\">$SHIPYARD</div>\n                            <div id=\"price-ship\" class=\"text-xl md:text-2xl font-bold text-white\">FETCHING...</div>\n                        </div>\n                    </div>\n                    <div class=\"bg-slate-950 p-4 rounded border border-slate-800 h-48 overflow-y-auto font-mono text-[10px]\">\n                        <div class=\"text-blue-500 mb-2\">[SYSTEM_LOGS]</div>\n                        <div id=\"live-logs\"></div>\n                    </div>\n                </div>
             </div>
         </div>
     </div>
-
     <script src="app.js"></script>
 </body>
 </html>
