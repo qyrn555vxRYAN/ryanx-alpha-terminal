@@ -1,23 +1,32 @@
 {
     "name": "RyanX | Alpha Scanner",
-    "description": "Direct institutional oracle signals for Moltbook ecosystem tokens. Arbitrage & liquidity monitoring.",
-    "price": [
-        {
-            "tier": "7-Day Pass",
-            "amount": 0.1,
-            "currency": "SOL"
+    "description": "Real-time spread intelligence for Moltbook ecosystem tokens. Arbitrage & liquidity monitoring.",
+    "pricing": {
+        "free": {
+            "price": 0,
+            "alerts_per_day": 3,
+            "delay_minutes": 5,
+            "features": [
+                "3 alerts per day",
+                "5-minute delay",
+                "Basic spread data",
+                "Email notifications"
+            ]
         },
-        {
-            "tier": "Launch Offer",
-            "amount": 0.2,
-            "currency": "SOL"
-        },
-        {
-            "tier": "Founder Pass",
-            "amount": 1.0,
-            "currency": "SOL"
+        "pro": {
+            "price": 0.2,
+            "currency": "SOL",
+            "tier": "Lifetime",
+            "features": [
+                "Unlimited alerts",
+                "Real-time (0 delay)",
+                "Historical charts",
+                "Share functionality",
+                "Priority support"
+            ]
         }
-    ],
+    },
     "payment_address": "AqE264DnKyJci9kV4t3eYhDtFB3H88HQusWtH5odSqHM",
-    "status": "active"
+    "status": "active",
+    "version": "2.0.0-freemium"
 }

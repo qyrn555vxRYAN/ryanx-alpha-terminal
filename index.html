@@ -90,31 +90,83 @@
 
             <div id="terminal" class="flex-grow p-4 md:p-6 overflow-y-auto">
                 <div id="content-locked" class="space-y-6 max-w-2xl mx-auto text-center">
-                    <h2 class="text-2xl md:text-3xl font-bold text-white mb-3 neon-text tracking-tighter uppercase italic">Data Stream Encrypted</h2>
-                    <p class="text-xs md:text-sm text-slate-400 mb-6 leading-relaxed">Direct institutional oracle signals for Moltbook ecosystem tokens.</p>
-                    
-                    <!-- 🔥 SPREAD ALERT PREVIEW -->
-                    <div class="bg-red-500/10 border border-red-500/30 rounded-lg p-3 mb-4 spread-alert">
-                        <div class="flex items-center justify-center gap-2 text-red-400">
-                            <span class="animate-pulse">●</span>
-                            <span class="text-xs font-bold uppercase">LIVE ALERT: $SHELLRAISER Spread +1.8% on Jupiter</span>
-                        </div>
-                        <p class="text-[10px] text-slate-500 mt-1">Unlock to see full arbitrage opportunities</p>
+                    <h2 class="text-2xl md:text-3xl font-bold text-white mb-3 neon-text tracking-tighter uppercase italic">Alpha Terminal</h2>
+                    <p class="text-xs md:text-sm text-slate-400 mb-6 leading-relaxed">Real-time spread intelligence for Moltbook ecosystem tokens.</p>
+
+                    <!-- 🔥 FREE ACCESS CTA -->
+                    <div class="bg-green-500/10 border border-green-500/30 rounded-lg p-4 mb-4">
+                        <div class="text-green-400 text-sm font-bold mb-2 uppercase">🎁 Try FREE - No Payment Required</div>
+                        <p class="text-[10px] text-slate-400 mb-3">Get 3 alerts/day with 5-min delay. See real alpha, zero risk.</p>
+                        <button onclick="activateFreeTier()" id="free-access-btn" class="bg-green-600 hover:bg-green-500 text-white py-3 px-6 rounded font-bold text-xs tracking-widest uppercase transition-all">
+                            Get Free Access
+                        </button>
                     </div>
-                    
+
+                    <!-- 🔥 LIVE ALERTS PREVIEW (Always visible) -->
+                    <div class="mb-4">
+                        <div class="text-[10px] text-slate-500 uppercase tracking-widest mb-2">Live Feed Preview</div>
+                        <div id="preview-alerts" class="space-y-2">
+                            <div class="bg-red-500/10 border border-red-500/30 rounded-lg p-3 spread-alert">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2 text-red-400">
+                                        <span class="animate-pulse">●</span>
+                                        <span class="text-xs font-bold uppercase">$SHELLRAISER Spread +1.8%</span>
+                                    </div>
+                                    <span class="text-[9px] text-slate-500">Jupiter</span>
+                                </div>
+                            </div>
+                            <div class="bg-green-500/10 border border-green-500/30 rounded-lg p-3">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2 text-green-400">
+                                        <span class="animate-pulse">●</span>
+                                        <span class="text-xs font-bold uppercase">$SHIPYARD Spread +0.9%</span>
+                                    </div>
+                                    <span class="text-[9px] text-slate-500">Raydium</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-[9px] text-slate-600 mt-2">Updates every 30s • Free tier: 5-min delay</p>
+                    </div>
+
+                    <!-- 🔥 EMAIL CAPTURE -->
+                    <div class="bg-black/50 p-4 rounded-lg border border-slate-700 mb-4">
+                        <div class="text-[10px] text-blue-400 uppercase mb-2 font-bold">📬 Get Alpha Updates</div>
+                        <div class="flex gap-2">
+                            <input id="email-capture" type="email" placeholder="your@email.com" class="flex-1 bg-slate-950 border border-slate-700 p-2 rounded text-xs focus:outline-none focus:border-blue-500 text-white">
+                            <button onclick="captureEmail()" class="bg-blue-600 hover:bg-blue-500 text-white px-4 rounded text-xs font-bold transition-all">Join</button>
+                        </div>
+                        <p class="text-[9px] text-slate-600 mt-2">Get notified of high-spread opportunities. No spam.</p>
+                    </div>
+
                     <!-- Pricing Table -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                        <div class="bg-black/50 p-4 rounded-lg border border-slate-700 text-left">
-                            <div class="text-[10px] text-slate-500 uppercase mb-1">Standard</div>
-                            <div class="text-xl text-white font-bold">0.1 SOL</div>
-                            <div class="text-[9px] text-slate-400">7-Day Access</div>
+                        <div class="bg-green-900/20 p-4 rounded-lg border border-green-500/50 text-left relative overflow-hidden">
+                            <div class="absolute top-0 right-0 bg-green-500 text-white text-[8px] px-2 py-0.5 font-bold uppercase">FREE</div>
+                            <div class="text-[10px] text-green-400 uppercase mb-1">Free Tier</div>
+                            <div class="text-xl text-white font-bold">$0</div>
+                            <div class="text-[9px] text-slate-400 mt-2">
+                                ✅ 3 alerts/day<br>
+                                ✅ 5-min delay<br>
+                                ✅ Basic spread data
+                            </div>
                         </div>
                         <div class="bg-blue-900/20 p-4 rounded-lg border border-blue-500/50 text-left relative overflow-hidden">
-                            <div class="absolute top-0 right-0 bg-blue-500 text-white text-[8px] px-2 py-0.5 font-bold uppercase">Best Value</div>
-                            <div class="text-[10px] text-blue-400 uppercase mb-1">Lifetime Launch</div>
+                            <div class="absolute top-0 right-0 bg-blue-500 text-white text-[8px] px-2 py-0.5 font-bold uppercase">PRO</div>
+                            <div class="text-[10px] text-blue-400 uppercase mb-1">Lifetime Pro</div>
                             <div class="text-xl text-white font-bold">0.2 SOL</div>
-                            <div class="text-[9px] text-blue-300">Unlimited Access</div>
+                            <div class="text-[9px] text-blue-300 mt-2">
+                                ✅ Unlimited alerts<br>
+                                ✅ Real-time (0 delay)<br>
+                                ✅ Historical charts<br>
+                                ✅ Share functionality
+                            </div>
                         </div>
+                    </div>
+
+                    <!-- UPGRADE CTA FOR FREE USERS (hidden by default) -->
+                    <div id="upgrade-prompt" class="hidden bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-3 mb-4">
+                        <div class="text-yellow-400 text-xs font-bold mb-1">⚡ Want Real-Time Alerts?</div>
+                        <p class="text-[10px] text-slate-400">Upgrade to Pro for instant notifications & unlimited access.</p>
                     </div>
                     
                     <!-- 🔥 TESTIMONIALS -->
@@ -139,19 +191,18 @@
                         </div>
                     </div>
                     
-                    <div class="bg-black/50 p-4 md:p-6 rounded-lg border border-yellow-500/20 inline-block text-left w-full shadow-lg mb-6">
-                        <div class="text-[9px] text-zinc-500 mb-1 uppercase font-bold tracking-widest">System Destination Address:</div>
-                        <div class="bg-slate-950 p-2 md:p-3 rounded font-mono text-[9px] md:text-sm break-all text-blue-300 border border-blue-500/20 select-all">
+                    <!-- 🔥 PRO UPGRADE SECTION -->
+                    <div id="pro-section" class="bg-black/50 p-4 md:p-6 rounded-lg border border-yellow-500/20 text-left w-full shadow-lg mb-4">
+                        <div class="text-[9px] text-zinc-500 mb-1 uppercase font-bold tracking-widest">Upgrade to Pro (0.2 SOL Lifetime)</div>
+                        <div class="text-[8px] text-slate-600 mb-2">Send 0.2 SOL to unlock real-time alerts & unlimited access</div>
+                        <div class="bg-slate-950 p-2 rounded font-mono text-[9px] break-all text-blue-300 border border-blue-500/20 select-all mb-3">
                             AqE264DnKyJci9kV4t3eYhDtFB3H88HQusWtH5odSqHM
                         </div>
-                    </div>
-
-                    <div class="space-y-3 w-full max-w-sm mx-auto">
-                        <input id="user-wallet" type="text" placeholder="YOUR WALLET ADDRESS" class="w-full bg-slate-950 border border-slate-700 p-3 md:p-4 rounded text-xs text-center focus:outline-none focus:border-blue-500 transition-colors text-white uppercase tracking-widest">
-                        <button onclick="verifyPayment()" id="verify-btn" class="w-full bg-blue-600 hover:bg-blue-500 text-white py-3 md:py-4 rounded font-bold text-xs md:text-sm tracking-[0.2em] transition-all shadow-lg shadow-blue-500/20 uppercase">
-                            Decrypt_Feed
+                        <input id="user-wallet" type="text" placeholder="YOUR WALLET ADDRESS" class="w-full bg-slate-950 border border-slate-700 p-2 rounded text-xs focus:outline-none focus:border-blue-500 transition-colors text-white uppercase tracking-widest mb-2">
+                        <button onclick="verifyPayment()" id="verify-btn" class="w-full bg-blue-600 hover:bg-blue-500 text-white py-2 rounded font-bold text-xs tracking-widest transition-all uppercase">
+                            Verify Payment
                         </button>
-                        <div id="verification-log" class="text-[10px] text-slate-500 animate-pulse h-4 uppercase"></div>
+                        <div id="verification-log" class="text-[10px] text-slate-500 animate-pulse h-4 uppercase mt-2"></div>
                     </div>
                 </div>
 
@@ -287,24 +338,67 @@
         setInterval(fetchTopCoinPrices, 30000);
         
         // ============================================
-        // 🔥 SPREAD ALERTS
+        // 🔥 SPREAD ALERTS (with freemium logic)
         // ============================================
+        let lastAlertUpdate = 0;
+        const FREE_DELAY_MS = 5 * 60 * 1000; // 5 minutes
+
         function updateSpreadAlerts() {
             const container = document.getElementById('alert-container');
             if (!container) return;
-            
+
+            // Check if user can see alerts
+            const tier = getTier ? getTier() : null;
+            const isFree = tier && tier.type === 'free';
+            const isPro = tier && tier.type === 'pro';
+
+            if (!isFree && !isPro) {
+                return; // No access yet
+            }
+
+            // For free users: check 5-min delay
+            if (isFree) {
+                const now = Date.now();
+                if (now - lastAlertUpdate < FREE_DELAY_MS) {
+                    // Show delay message
+                    const remaining = Math.ceil((FREE_DELAY_MS - (now - lastAlertUpdate)) / 1000);
+                    container.innerHTML = `
+                        <div class="col-span-2 text-center text-slate-500 text-xs py-4">
+                            <div class="animate-pulse">⏱️ Free tier: Next update in ${remaining}s</div>
+                            <div class="text-[10px] mt-1">Upgrade to Pro for real-time alerts</div>
+                        </div>
+                    `;
+                    return;
+                }
+
+                // Check daily limit
+                if (typeof checkDailyReset === 'function') checkDailyReset();
+                if (tier.alertsToday >= 3) {
+                    container.innerHTML = `
+                        <div class="col-span-2 text-center text-yellow-500 text-xs py-4">
+                            <div>⚠️ Daily limit reached (3/3 alerts)</div>
+                            <div class="text-[10px] mt-1">Upgrade to Pro for unlimited alerts</div>
+                        </div>
+                    `;
+                    return;
+                }
+
+                lastAlertUpdate = now;
+                if (typeof incrementAlertCount === 'function') incrementAlertCount();
+            }
+
             // Simulate spread data (in production, this would be real API data)
             const alerts = [
                 { token: 'SHELLRAISER', spread: (Math.random() * 2 + 0.5).toFixed(2), dex: 'Jupiter', direction: 'up' },
                 { token: 'SHIPYARD', spread: (Math.random() * 1.5).toFixed(2), dex: 'Raydium', direction: Math.random() > 0.5 ? 'up' : 'down' }
             ];
-            
+
             let html = '';
             alerts.forEach(alert => {
                 const isHighSpread = parseFloat(alert.spread) > 1;
                 const alertClass = isHighSpread ? 'border-red-500/50 bg-red-500/10 spread-alert' : 'border-green-500/30 bg-green-500/5';
                 const textColor = isHighSpread ? 'text-red-400' : 'text-green-400';
-                
+
                 html += `
                     <div class="p-3 rounded-lg border ${alertClass} transition-all">
                         <div class="flex justify-between items-center">
@@ -316,10 +410,11 @@
                             <span class="text-[10px] text-slate-500">spread ${alert.direction === 'up' ? '↑' : '↓'}</span>
                             ${isHighSpread ? '<span class="text-[9px] text-red-400 animate-pulse">● HIGH</span>' : ''}
                         </div>
+                        ${isFree ? '<div class="text-[8px] text-slate-600 mt-1">Free tier • 5-min delay</div>' : ''}
                     </div>
                 `;
             });
-            
+
             container.innerHTML = html;
         }
         
